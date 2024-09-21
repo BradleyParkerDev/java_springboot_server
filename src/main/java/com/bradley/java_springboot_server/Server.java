@@ -1,13 +1,14 @@
-package com.bradley.spring_api_example;
+package com.bradley.java_springboot_server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringApiExampleApplication {
+public class Server {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringApiExampleApplication.class, args);
+		System.out.println("Starting server!!!");
+		SpringApplication.run(Server.class, args);
 	}
 
 }
