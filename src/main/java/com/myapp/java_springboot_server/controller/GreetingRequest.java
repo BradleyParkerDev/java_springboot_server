@@ -1,4 +1,4 @@
-package com.bradley.java_springboot_server.controller;
+package com.myapp.java_springboot_server.controller;
 
 public class GreetingRequest {
 

@@ -1,4 +1,4 @@
-package com.bradley.java_springboot_server.controller;
+package com.myapp.java_springboot_server.controller;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -7,7 +7,7 @@ public class HelloWorldController {
 
     @GetMapping("/")
     public String helloWorld() {
-        return "Hello, Bradley Parker! This is a greeting from your Java server!";
+        return "Hello, Bradley! This is a greeting from your Java server!";
     }
 
     @PostMapping("/greet")
