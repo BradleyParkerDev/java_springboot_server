@@ -1,4 +1,4 @@
-package com.bradley.spring_api_example;
+package com.myapp.java_springboot_server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
