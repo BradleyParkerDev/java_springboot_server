@@ -1,12 +1,19 @@
 package com.myapp.java_springboot_server.database.models;
 
-import javax.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
-import static javax.persistence.GenerationType.SEQUENCE;
+import static jakarta.persistence.GenerationType.SEQUENCE;
 
 @Entity(name = "User")
 @Table(
-        name = "user",
+        name = "users",
         uniqueConstraints = {
                 @UniqueConstraint(name = "user_email_unique", columnNames = "email")
         }
@@ -50,24 +57,27 @@ public class User {
     )
     private String email;
 
+    @Column(
+            name = "password",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
+    private String password;
 
     private Integer age;
 
-    public User(Long id,
-                   String firstName,
-                   String lastName,
-                   String email) {
+    // Constructors
+    public User(Long id, String firstName, String lastName, String email, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-    
+        this.password = password;
     }
 
-    public User() {
+    public User() {}
 
-    }
-
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -100,6 +110,13 @@ public class User {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Override
     public String toString() {
@@ -111,54 +128,3 @@ public class User {
                 '}';
     }
 }
-
-
-
-
-
-/* 
-
-package com.myapp.java_springboot_server.database.models;
-
-import javax.persistence.*;
-
-@Entity  // Marks this class as a JPA entity
-@Table(name = "users")  // Maps to the "users" table in the database
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false, unique = true)
-    private String username;
-
-    @Column(nullable = false)
-    private String password;
-
-    // Getters and setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-}
-*/
